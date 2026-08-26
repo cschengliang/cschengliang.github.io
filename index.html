@@ -1,11 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>helloworldd</title>
+    <meta name="description" content="cschengliang 的个人主页">
+    <title>cschengliang</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --background: #fafafa;
+            --foreground: #171717;
+            --muted: #737373;
+            --line: #d4d4d4;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            display: grid;
+            place-items: center;
+            padding: 24px;
+            background: var(--background);
+            color: var(--foreground);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        main {
+            width: min(100%, 560px);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2.25rem, 8vw, 4rem);
+            font-weight: 600;
+            letter-spacing: -0.04em;
+            line-height: 1;
+        }
+
+        p {
+            margin: 20px 0 36px;
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        a {
+            display: inline-flex;
+            align-items: center;
+            min-height: 44px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--line);
+            color: var(--foreground);
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: border-color 160ms ease, color 160ms ease;
+        }
+
+        a::after {
+            content: "↗";
+            margin-left: 10px;
+            font-size: 1.1rem;
+        }
+
+        a:hover,
+        a:focus-visible {
+            border-color: var(--foreground);
+            color: var(--muted);
+        }
+
+        a:focus-visible {
+            outline: 2px solid var(--foreground);
+            outline-offset: 5px;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                place-items: start;
+                padding-top: 22vh;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>helloworldd</h1>
+    <main>
+        <h1>helloworldd</h1>
+        <p>一个极简的个人主页。</p>
+        <a href="/docs/">进入 VitePress</a>
+    </main>
 </body>
 </html>
