@@ -6,15 +6,15 @@ export default defineConfig({
   description: '学习、记录与实践',
   base: '/docs/',
   outDir: '../docs',
-  cleanUrls: true,
+  cleanUrls: false,
   lastUpdated: true,
   appearance: true,
   head: [
-    ['link', { rel: 'icon', href: '/docs/favicon.svg' }]
+    ['link', { rel: 'icon', href: '/favicon.svg' }]
   ],
   themeConfig: {
     siteTitle: 'cschengliang Docs',
-    logo: '/docs/favicon.svg',
+    logo: '/favicon.svg',
     nav: [
       { text: '概述', link: '/' },
       { text: '开始使用', link: '/guide/getting-started' },
