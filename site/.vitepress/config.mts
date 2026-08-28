@@ -8,32 +8,47 @@ export default defineConfig({
   outDir: '../docs',
   cleanUrls: true,
   lastUpdated: true,
+  appearance: true,
+  head: [
+    ['link', { rel: 'icon', href: '/docs/favicon.svg' }]
+  ],
   themeConfig: {
-    siteTitle: 'cschengliang',
+    siteTitle: 'cschengliang Docs',
+    logo: '/docs/favicon.svg',
     nav: [
-      { text: '首页', link: '/' },
-      { text: '指南', link: '/guide/getting-started' },
+      { text: '概述', link: '/' },
+      { text: '开始使用', link: '/guide/getting-started' },
+      { text: '实践记录', link: '/notes/overview' },
       { text: 'GitHub', link: 'https://github.com/cschengliang' }
     ],
     sidebar: [
       {
-        text: '开始',
+        text: '开始使用',
         items: [
-          { text: '文档首页', link: '/' },
+          { text: '概述', link: '/' },
           { text: '快速开始', link: '/guide/getting-started' }
+        ]
+      },
+      {
+        text: '实践记录',
+        items: [
+          { text: '记录说明', link: '/notes/overview' }
         ]
       }
     ],
     socialLinks: [
       { icon: 'github', link: 'https://github.com/cschengliang' }
     ],
-    footer: {
-      message: '基于 VitePress 构建',
-      copyright: 'Copyright © 2026 cschengliang'
+    search: {
+      provider: 'local'
     },
     outline: {
       label: '本页目录',
       level: [2, 3]
+    },
+    footer: {
+      message: '基于 VitePress 构建',
+      copyright: 'Copyright © 2026 cschengliang'
     },
     docFooter: {
       prev: '上一页',
@@ -44,6 +59,7 @@ export default defineConfig({
     },
     returnToTopLabel: '返回顶部',
     sidebarMenuLabel: '菜单',
-    darkModeSwitchLabel: '主题'
+    darkModeSwitchLabel: '主题',
+    langMenuLabel: '语言'
   }
 })
