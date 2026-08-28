@@ -39,6 +39,19 @@
 
 .VPNav {
   border-bottom: 1px solid var(--vp-c-divider);
+  transition: transform 220ms ease, opacity 220ms ease;
+}
+
+.header-hidden .VPNav {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .VPNav {
+    transition: none;
+  }
 }
 
 .VPNavBar {
