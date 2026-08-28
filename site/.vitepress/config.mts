@@ -18,7 +18,7 @@ export default defineConfig({
     nav: [
       { text: '概述', link: '/' },
       { text: '开始使用', link: '/guide/getting-started' },
-      { text: '博客', link: '/blog/android-binder-proxy-stub-thread' },
+      { text: '博客', link: '/blog/' },
       { text: '实践记录', link: '/notes/overview' },
       { text: 'GitHub', link: 'https://github.com/cschengliang' }
     ],
@@ -33,7 +33,10 @@ export default defineConfig({
       {
         text: '技术博客',
         items: [
-          { text: 'Android Binder：Proxy、Stub 与线程', link: '/blog/android-binder-proxy-stub-thread' }
+          { text: '博客首页', link: '/blog/' },
+          { text: 'Binder：Proxy、Stub 与线程', link: '/blog/android-binder-proxy-stub-thread' },
+          { text: 'Binder.java 源码导读', link: '/blog/android-binder-guide' },
+          { text: 'IBinder.java 源码导读', link: '/blog/android-ibinder-guide' }
         ]
       },
       {
