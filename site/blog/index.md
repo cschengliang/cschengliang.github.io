@@ -6,6 +6,8 @@
 
 - [Android EventLog 参考](/blog/eventlogref)<br>
   按功能分类整理 Android EventLog 标签、字段含义与触发流程，便于源码检索和问题定位。
+- [Android EventLog 场景索引](/blog/eventlog-scenarios)<br>
+  按日常排查场景快速筛选启动、Activity、ANR、输入、网络和性能相关事件。
 
 ## Android 输入系统
 

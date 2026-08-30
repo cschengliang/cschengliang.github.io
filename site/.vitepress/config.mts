@@ -35,6 +35,7 @@ export default defineConfig({
         items: [
           { text: '博客首页', link: '/blog/' },
           { text: 'Android EventLog 参考', link: '/blog/eventlogref' },
+          { text: 'Android EventLog 场景索引', link: '/blog/eventlog-scenarios' },
           { text: '触摸事件：InputDispatcher 到 View', link: '/blog/input-dispatcher-to-view-click' },
           { text: 'Binder：Proxy、Stub 与线程', link: '/blog/android-binder-proxy-stub-thread' },
           { text: 'Binder.java 源码导读', link: '/blog/android-binder-guide' },
