@@ -2,6 +2,11 @@
 
 这里记录 Android Framework、Binder IPC 和系统源码阅读过程中的理解与实践。
 
+## Android 系统参考
+
+- [Android EventLog 参考](/blog/eventlogref)<br>
+  按功能分类整理 Android EventLog 标签、字段含义与触发流程，便于源码检索和问题定位。
+
 ## Android 输入系统
 
 - [Android 触摸事件：从 InputDispatcher 到 View 点击回调](/blog/input-dispatcher-to-view-click)<br>
