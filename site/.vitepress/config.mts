@@ -34,6 +34,7 @@ export default defineConfig({
         text: '技术博客',
         items: [
           { text: '博客首页', link: '/blog/' },
+          { text: '触摸事件：InputDispatcher 到 View', link: '/blog/input-dispatcher-to-view-click' },
           { text: 'Binder：Proxy、Stub 与线程', link: '/blog/android-binder-proxy-stub-thread' },
           { text: 'Binder.java 源码导读', link: '/blog/android-binder-guide' },
           { text: 'IBinder.java 源码导读', link: '/blog/android-ibinder-guide' }

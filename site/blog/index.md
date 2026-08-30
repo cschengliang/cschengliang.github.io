@@ -2,6 +2,11 @@
 
 这里记录 Android Framework、Binder IPC 和系统源码阅读过程中的理解与实践。
 
+## Android 输入系统
+
+- [Android 触摸事件：从 InputDispatcher 到 View 点击回调](/blog/input-dispatcher-to-view-click)<br>
+  梳理触摸事件从系统输入分发进入应用主线程，最终触发 `OnClickListener` 的完整链路。
+
 ## Android Binder 系列
 
 - [Binder、Proxy、Stub 与 Binder 线程](/blog/android-binder-proxy-stub-thread)  
