@@ -11,6 +11,9 @@
 
 ## Android 输入系统
 
+- [SurfaceControlRegistry 调试功能使用指南](/blog/surfacecontrol-registry-debugging)<br>
+  介绍 SurfaceControl 对象统计、Transaction 调用栈追踪和常见调试误区。
+
 - [Android 触摸事件：从 InputDispatcher 到 View 点击回调](/blog/input-dispatcher-to-view-click)<br>
   梳理触摸事件从系统输入分发进入应用主线程，最终触发 `OnClickListener` 的完整链路。
 

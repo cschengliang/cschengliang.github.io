@@ -36,6 +36,7 @@ export default defineConfig({
           { text: '博客首页', link: '/blog/' },
           { text: 'Android EventLog 参考', link: '/blog/eventlogref' },
           { text: 'Android EventLog 场景索引', link: '/blog/eventlog-scenarios' },
+          { text: 'SurfaceControlRegistry 调试指南', link: '/blog/surfacecontrol-registry-debugging' },
           { text: '触摸事件：InputDispatcher 到 View', link: '/blog/input-dispatcher-to-view-click' },
           { text: 'Binder 同步调用优先级继承', link: '/blog/binder-priority-inheritance' },
           { text: 'Binder：Proxy、Stub 与线程', link: '/blog/android-binder-proxy-stub-thread' },
