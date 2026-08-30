@@ -16,6 +16,8 @@
 
 ## Android Binder 系列
 
+- [Android Binder 同步调用的优先级继承机制](/blog/binder-priority-inheritance)<br>
+  解析同步事务中的线程优先级继承、调度策略限制和事务结束后的恢复过程。
 - [Binder、Proxy、Stub 与 Binder 线程](/blog/android-binder-proxy-stub-thread)  
   从 AIDL 和 PackageManager 调用链理解跨进程调用的线程关系。
 - [Binder.java 源码导读](/blog/android-binder-guide)  
