@@ -49,7 +49,16 @@
 .vp-doc a { text-underline-offset: 3px; }
 .vp-doc div[class*='language-'] { border: 1px solid var(--vp-c-divider); border-radius: 6px; margin: 14px 0; }
 .vp-doc .custom-block { border-radius: 6px; }
-.VPDocAsideOutline .outline-link { font-size: 12px; line-height: 27px; }
+.VPDocAsideOutline .outline-link {
+  font-size: 12px;
+  line-height: 1.65;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  overflow: visible;
+  text-overflow: clip;
+}
 .VPButton { border-radius: 6px !important; }
 @media (min-width: 960px) {
   .VPDoc { padding-top: 32px !important; }
