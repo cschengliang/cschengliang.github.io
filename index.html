@@ -1,88 +1,27 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="cschengliang 的个人空间：学习、记录与实践，把想法变成作品。">
-  <meta name="theme-color" content="#f7f6f2">
-  <title>cschengliang · 学习、记录与实践</title>
-  <style>
-    :root { color-scheme: light; --paper:#f7f6f2; --ink:#252722; --muted:#777970; --line:#dedfd6; --accent:#e6663c; }
-    * { box-sizing:border-box; }
-    body { margin:0; background:var(--paper); color:var(--ink); font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif; -webkit-font-smoothing:antialiased; }
-    a { color:inherit; text-decoration:none; }
-    a:focus-visible { outline:3px solid var(--accent); outline-offset:6px; }
-    .wrap { max-width:1160px; margin:auto; padding:0 48px; }
-    header { min-height:108px; display:flex; align-items:center; justify-content:space-between; gap:24px; border-bottom:1px solid var(--line); }
-    .brand { display:flex; align-items:center; gap:12px; font-size:16px; font-weight:650; letter-spacing:-.4px; }
-    .mark { display:grid; place-items:center; width:32px; height:32px; background:var(--ink); color:var(--paper); border-radius:9px; font:600 19px Georgia,serif; }
-    nav { display:flex; gap:28px; align-items:center; font-size:13px; }
-    nav a { padding:8px 0; transition:color .2s; }
-    nav a:hover { color:var(--accent); }
-    .hero { display:grid; grid-template-columns:1.25fr 1fr; align-items:center; gap:32px; padding:92px 0 84px; }
-    .eyebrow { display:flex; align-items:center; gap:9px; color:var(--muted); font-size:11px; letter-spacing:2px; font-weight:500; }
-    .dot { width:7px; height:7px; border-radius:50%; background:var(--accent); }
-    h1 { margin:28px 0 24px; font-size:clamp(40px,5.2vw,64px); line-height:1.3; font-weight:650; letter-spacing:-2px; }
-    h1 span { color:var(--accent); }
-    .intro { max-width:410px; font-size:15px; line-height:1.95; color:var(--muted); }
-    .actions { display:flex; flex-wrap:wrap; gap:24px; align-items:center; margin-top:34px; }
-    .primary { display:inline-flex; align-items:center; gap:30px; background:var(--ink); color:white; border-radius:7px; padding:16px 21px; font-size:13px; transition:background .2s,transform .2s; }
-    .primary:hover { background:var(--accent); transform:translateY(-2px); }
-    .secondary { padding:12px 0; font-size:13px; border-bottom:1px solid var(--line); }
-    .secondary:hover { border-color:var(--accent); }
-    .art { position:relative; aspect-ratio:1; display:grid; place-items:center; isolation:isolate; }
-    .art::before { content:""; position:absolute; inset:8%; background:radial-gradient(circle,#e8e8d9 0,transparent 68%); z-index:-1; }
-    .orbit { position:absolute; width:78%; height:78%; border:1px solid #d8dacd; border-radius:50%; }
-    .orbit.two { width:58%; height:58%; border-style:dashed; transform:rotate(-20deg); }
-    .orbit::after { content:""; position:absolute; width:10px; height:10px; border-radius:50%; background:var(--accent); top:16%; left:11%; box-shadow:0 0 0 7px var(--paper); }
-    .two::after { top:auto; left:auto; right:9%; bottom:17%; width:7px; height:7px; background:#8b9278; }
-    .note { width:58%; background:#fffef9; border:1px solid #deded2; border-radius:5px; padding:27px; box-shadow:0 18px 40px #3f452310; transform:rotate(-8deg); }
-    .note-label { color:#939780; font:10px monospace; letter-spacing:1.7px; }
-    .asterisk { margin:17px 0; font:100px/.9 Georgia,serif; color:var(--accent); }
-    .note-title { font-size:19px; font-weight:600; letter-spacing:1px; }
-    .note-lines { margin-top:20px; height:25px; background:repeating-linear-gradient(to bottom,transparent 0,transparent 11px,#e6e7df 11px,#e6e7df 12px); }
-    .art-caption { position:absolute; bottom:2%; right:10%; font:11px monospace; color:#898d7d; letter-spacing:1px; transform:rotate(-8deg); }
-    .section-head { display:flex; justify-content:space-between; align-items:center; gap:20px; margin-bottom:23px; }
-    .section-head h2 { font-size:12px; font-weight:500; letter-spacing:2px; margin:0; }
-    .section-head span { color:var(--muted); font:11px monospace; }
-    .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-    .card { display:flex; flex-direction:column; min-height:211px; padding:25px; border:1px solid var(--line); border-radius:9px; background:#ffffff35; transition:transform .2s,border-color .2s,background .2s; }
-    .card:hover { transform:translateY(-4px); border-color:#b7bbab; background:#fffef9; }
-    .card-top { display:flex; justify-content:space-between; align-items:center; color:var(--muted); font:11px monospace; }
-    .card-top .arrow { font:21px sans-serif; }
-    .card h3 { margin:31px 0 10px; font-size:18px; font-weight:550; }
-    .card p { margin:0; font-size:13px; line-height:1.8; color:var(--muted); }
-    footer { display:flex; justify-content:space-between; gap:16px; margin-top:64px; padding:26px 0 30px; border-top:1px solid var(--line); font-size:11px; color:var(--muted); }
-    footer span:last-child { letter-spacing:1px; }
-    @media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation:none !important; transition:none !important; } }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="cschengliang 的技术博客，记录 Android Framework、Binder IPC、输入系统与源码阅读实践。">
+<meta name="theme-color" content="#fdfdfb">
+<title>技术博客 · cschengliang</title>
+<style>
+:root{color-scheme:light;--bg:#fdfdfb;--ink:#30302e;--muted:#72726b;--line:#e9e8e2;--accent:#a6533b;--soft:#f5eee8}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;min-width:1060px;background:var(--bg);color:var(--ink);font:14px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif}a{color:inherit;text-decoration:none}a:focus-visible{outline:2px solid var(--accent);outline-offset:4px}a:hover{color:var(--accent)}header{height:65px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg);z-index:5}.topbar{max-width:1440px;padding:0 40px;margin:auto;height:100%;display:flex;align-items:center;gap:38px}.brand{font-size:17px;font-weight:650;letter-spacing:-.5px;display:flex;align-items:center;gap:10px}.brand-mark{color:var(--accent);font-size:27px}.site-label{font-size:12px;font-weight:400;color:var(--muted);padding-left:14px;border-left:1px solid var(--line);letter-spacing:0}.topnav{display:flex;gap:25px;align-items:center;margin-left:auto;font-size:13px}.topnav .active{color:var(--accent)}.docs-button{border:1px solid var(--line);border-radius:6px;padding:5px 13px}.layout{display:grid;grid-template-columns:218px minmax(520px,1fr) 170px;gap:42px;max-width:1440px;padding:0 40px;margin:auto}.sidebar{position:sticky;top:65px;height:calc(100vh - 65px);padding:30px 18px 24px 0;border-right:1px solid var(--line);overflow:auto}.nav-group{margin-bottom:24px}.nav-label{font-size:12px;font-weight:600;margin:0 0 8px;padding:0 11px}.sidebar a{display:block;color:#64645e;padding:6px 11px;border-radius:5px;font-size:13px;line-height:1.6}.sidebar a:hover{background:#f3f2ee;color:var(--ink)}.sidebar a.current{background:var(--soft);color:var(--accent);font-weight:550}.sidebar .small{font-size:11px;color:#8a8981;border-top:1px solid var(--line);padding:16px 11px;margin-top:30px}main{padding:32px 0 24px;min-width:0}.breadcrumb{font-size:12px;color:var(--muted);margin-bottom:15px}.breadcrumb span{padding:0 9px;color:#b4b1a8}.eyebrow{font-size:12px;color:var(--accent);font-weight:600;margin-bottom:7px}h1{font-size:32px;line-height:1.35;letter-spacing:-1px;margin:0 0 13px;font-weight:650}.lead{margin:0;color:var(--muted);font-size:14px;line-height:1.85}.intro{padding-bottom:22px;border-bottom:1px solid var(--line)}.topic-tags{display:flex;gap:8px;margin-top:16px}.tag{font-size:11px;line-height:1.5;padding:3px 8px;border:1px solid var(--line);border-radius:4px;color:var(--muted)}.notice{display:flex;gap:12px;background:#f6f5f0;border:1px solid var(--line);border-radius:6px;margin:22px 0 26px;padding:12px 15px;font-size:13px}.notice .icon{color:var(--accent);font-weight:700}.notice a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}section{scroll-margin-top:85px;margin-top:26px}.section-heading{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:10px}h2{font-size:19px;letter-spacing:-.3px;margin:0;font-weight:600}.count{font-size:11px;color:var(--muted)}.article{display:block;padding:15px 0;border-bottom:1px solid var(--line)}.article:hover h3{color:var(--accent)}.article-head{display:flex;align-items:center;gap:12px;justify-content:space-between}h3{font-size:14px;line-height:1.65;font-weight:600;margin:0;transition:color .15s}.article .arrow{font-size:16px;color:#a49d92}.article p{font-size:12px;color:var(--muted);line-height:1.8;margin:4px 25px 0 0}.reading{padding:15px 17px;border:1px solid var(--line);border-radius:6px;margin-top:27px}.reading h2{font-size:14px}.reading p{margin:5px 0 0;font-size:12px;color:var(--muted)}.reading a{color:var(--accent)}.toc{position:sticky;top:65px;align-self:start;padding-top:43px;font-size:12px}.toc strong{font-size:12px;font-weight:600}.toc-links{border-left:1px solid var(--line);margin-top:12px;padding-left:14px;display:grid;gap:10px;color:var(--muted)}.toc-note{border-top:1px solid var(--line);margin-top:27px;padding-top:16px;color:var(--muted);line-height:1.9}.toc-note a{display:inline-block;margin-top:7px;color:var(--accent)}footer{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:18px;margin-top:30px;color:var(--muted);font-size:11px}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <a class="brand" href="/" aria-label="cschengliang 首页"><span class="mark" aria-hidden="true">c.</span>cschengliang</a>
-      <nav aria-label="主导航"><a href="/docs/">文档</a><a href="https://github.com/cschengliang">GitHub ↗</a></nav>
-    </header>
-    <main>
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <div class="eyebrow"><span class="dot" aria-hidden="true"></span>A SPACE FOR CURIOSITY</div>
-          <h1 id="hero-title">保持好奇，<br>让想法<span>慢慢生长。</span></h1>
-          <p class="intro">你好，我是 cschengliang。<br>这里收藏学习中的发现、实践中的思考，<br>以及把一个想法变成现实的点滴过程。</p>
-          <div class="actions"><a class="primary" href="/docs/">探索我的文档 <span aria-hidden="true">↗</span></a><a class="secondary" href="https://github.com/cschengliang">在 GitHub 找到我 ↗</a></div>
-        </div>
-        <div class="art" aria-hidden="true"><div class="orbit"></div><div class="orbit two"></div><div class="note"><div class="note-label">NOTES TO SELF / 001</div><div class="asterisk">✳</div><div class="note-title">学一点，做一点。</div><div class="note-lines"></div></div><div class="art-caption">small steps, new possibilities.</div></div>
-      </section>
-      <section aria-labelledby="explore-title">
-        <div class="section-head"><h2 id="explore-title">从这里开始</h2><span>LEARN / BUILD / SHARE</span></div>
-        <div class="cards">
-          <a class="card" href="/docs/"><div class="card-top"><span>01 / KNOWLEDGE</span><span class="arrow" aria-hidden="true">↗</span></div><h3>知识与笔记</h3><p>把零散的发现整理成文档，让学过的知识，有迹可循。</p></a>
-          <a class="card" href="/docs/notes/overview"><div class="card-top"><span>02 / PRACTICE</span><span class="arrow" aria-hidden="true">↗</span></div><h3>实践与探索</h3><p>记录技术尝试和解题思路，在动手的过程中找到答案。</p></a>
-          <a class="card" href="https://github.com/cschengliang"><div class="card-top"><span>03 / OPEN SOURCE</span><span class="arrow" aria-hidden="true">↗</span></div><h3>代码与作品</h3><p>从一个小小的想法出发，用代码把可能性变成现实。</p></a>
-        </div>
-      </section>
-    </main>
-    <footer><span>© cschengliang · 个人学习与实践空间</span><span>保持简单，持续探索。</span></footer>
-  </div>
+<header><div class="topbar"><a class="brand" href="/" aria-label="cschengliang 首页"><span class="brand-mark" aria-hidden="true">✳</span>cschengliang <span class="site-label">技术博客</span></a><nav class="topnav" aria-label="主导航"><a class="active" href="/" aria-current="page">概述</a><a href="/docs/blog/">文章</a><a href="/docs/notes/overview.html">实践记录</a><a href="https://github.com/cschengliang">GitHub ↗</a><a class="docs-button" href="/docs/">进入文档 →</a></nav></div></header>
+<div class="layout">
+<aside class="sidebar"><nav aria-label="内容分类"><div class="nav-group"><p class="nav-label">开始阅读</p><a class="current" href="/" aria-current="page">概述</a><a href="/docs/guide/getting-started.html">快速开始</a><a href="/docs/blog/">全部文章</a></div><div class="nav-group"><p class="nav-label">Android Framework</p><a href="#system">系统日志与问题定位</a><a href="#input">输入与图形系统</a><a href="#binder">Binder IPC</a></div><div class="nav-group"><p class="nav-label">源码阅读</p><a href="/docs/blog/android-binder-guide.html">Binder.java</a><a href="/docs/blog/android-ibinder-guide.html">IBinder.java</a></div><div class="nav-group"><p class="nav-label">笔记与实践</p><a href="/docs/notes/overview.html">实践记录</a><a href="https://github.com/cschengliang">GitHub 仓库 ↗</a></div></nav><div class="small">学习、记录与实践。<br>把问题读懂，把过程记下来。</div></aside>
+<main id="main-content"><div class="breadcrumb">技术博客<span>/</span>概述</div><div class="intro"><div class="eyebrow">学习笔记 / ENGINEERING NOTES</div><h1>从源码出发，理解系统。</h1><p class="lead">你好，我是 cschengliang。这里记录 Android Framework、Binder IPC<br>与系统调试中的理解和实践，让每一次探索都留下可以回看的线索。</p><div class="topic-tags"><span class="tag">Android Framework</span><span class="tag">源码阅读</span><span class="tag">系统调试</span></div></div>
+<div class="notice"><span class="icon" aria-hidden="true">↳</span><span>第一次来？从 <a href="/docs/blog/android-binder-proxy-stub-thread.html">Binder、Proxy、Stub 与线程</a> 开始，建立跨进程调用的整体认识。</span></div>
+<section id="system"><div class="section-heading"><h2>系统日志与问题定位</h2><span class="count">02 篇</span></div><a class="article" href="/docs/blog/eventlogref.html"><div class="article-head"><h3>Android EventLog 参考</h3><span class="arrow" aria-hidden="true">↗</span></div><p>按功能整理日志标签、字段含义与触发流程，便于源码检索和问题定位。</p></a><a class="article" href="/docs/blog/eventlog-scenarios.html"><div class="article-head"><h3>Android EventLog 场景索引</h3><span class="arrow" aria-hidden="true">↗</span></div><p>从启动、Activity、ANR、输入和性能场景出发，快速找到需要的事件。</p></a></section>
+<section id="input"><div class="section-heading"><h2>输入与图形系统</h2><span class="count">02 篇</span></div><a class="article" href="/docs/blog/input-dispatcher-to-view-click.html"><div class="article-head"><h3>触摸事件：从 InputDispatcher 到 View 点击回调</h3><span class="arrow" aria-hidden="true">↗</span></div><p>沿着系统分发、应用主线程到 OnClickListener，梳理触摸事件的完整链路。</p></a><a class="article" href="/docs/blog/surfacecontrol-registry-debugging.html"><div class="article-head"><h3>SurfaceControlRegistry 调试指南</h3><span class="arrow" aria-hidden="true">↗</span></div><p>SurfaceControl 对象统计、Transaction 调用栈追踪，以及常见调试误区。</p></a></section>
+<section id="binder"><div class="section-heading"><h2>Binder IPC 与源码阅读</h2><span class="count">04 篇</span></div><a class="article" href="/docs/blog/android-binder-proxy-stub-thread.html"><div class="article-head"><h3>Binder、Proxy、Stub 与 Binder 线程</h3><span class="arrow" aria-hidden="true">↗</span></div><p>从 AIDL 和 PackageManager 调用链理解跨进程调用的线程关系。</p></a><a class="article" href="/docs/blog/binder-priority-inheritance.html"><div class="article-head"><h3>Binder 同步调用的优先级继承机制</h3><span class="arrow" aria-hidden="true">↗</span></div><p>同步事务中的优先级继承、调度策略限制，以及事务结束后的恢复过程。</p></a><a class="article" href="/docs/blog/android-binder-guide.html"><div class="article-head"><h3>Binder.java 源码导读</h3><span class="arrow" aria-hidden="true">↗</span></div><p>本地对象、事务入口、调用身份与调试扩展。</p></a><a class="article" href="/docs/blog/android-ibinder-guide.html"><div class="article-head"><h3>IBinder.java 源码导读</h3><span class="arrow" aria-hidden="true">↗</span></div><p>Binder 对象的基础协议、死亡监听与生命周期管理。</p></a></section>
+<section class="reading" id="notes"><h2>把实践整理成可以复用的知识</h2><p>项目过程、技术尝试和解决问题时留下的思路，都收在 <a href="/docs/notes/overview.html">实践记录 →</a></p></section>
+<footer><span>© 2026 cschengliang</span><a href="https://github.com/cschengliang">在 GitHub 上交流 ↗</a></footer></main>
+<aside class="toc" aria-label="本页目录"><strong>本页目录</strong><nav class="toc-links"><a href="#system">系统日志与问题定位</a><a href="#input">输入与图形系统</a><a href="#binder">Binder IPC 与源码阅读</a><a href="#notes">实践记录</a></nav><div class="toc-note">专注技术，持续记录。<br>在文档站搜索更多内容。<br><a href="/docs/blog/">浏览全部文章 →</a></div></aside>
+</div>
 </body>
 </html>
