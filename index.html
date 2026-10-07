@@ -2,16 +2,28 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
+<script>
+(function () {
+  var mode = 'auto'
+  try {
+    var raw = localStorage.getItem('vitepress-theme-appearance')
+    if (raw && raw.charAt(0) === '"') raw = JSON.parse(raw)
+    if (raw === 'dark' || raw === 'light' || raw === 'auto') mode = raw
+  } catch (e) {}
+  var dark = mode === 'dark' || (mode !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches)
+  if (dark) document.documentElement.classList.add('dark')
+})()
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="cschengliang 的技术博客，记录 Android Framework、Binder IPC、输入系统与源码阅读实践。">
 <meta name="theme-color" content="#fdfdfb">
 <title>技术博客 · cschengliang</title>
 <style>
-:root{color-scheme:light;--bg:#fdfdfb;--ink:#30302e;--muted:#72726b;--line:#e9e8e2;--accent:#a6533b;--soft:#f5eee8}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;min-width:1060px;background:var(--bg);color:var(--ink);font:14px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif}a{color:inherit;text-decoration:none}a:focus-visible{outline:2px solid var(--accent);outline-offset:4px}a:hover{color:var(--accent)}header{height:65px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg);z-index:5}.topbar{max-width:1440px;padding:0 40px;margin:auto;height:100%;display:flex;align-items:center;gap:38px}.brand{font-size:17px;font-weight:650;letter-spacing:-.5px;display:flex;align-items:center;gap:10px}.brand-mark{color:var(--accent);font-size:27px}.site-label{font-size:12px;font-weight:400;color:var(--muted);padding-left:14px;border-left:1px solid var(--line);letter-spacing:0}.topnav{display:flex;gap:25px;align-items:center;margin-left:auto;font-size:13px}.topnav .active{color:var(--accent)}.docs-button{border:1px solid var(--line);border-radius:6px;padding:5px 13px}.layout{display:grid;grid-template-columns:218px minmax(520px,1fr) 170px;gap:42px;max-width:1440px;padding:0 40px;margin:auto}.sidebar{position:sticky;top:65px;height:calc(100vh - 65px);padding:30px 18px 24px 0;border-right:1px solid var(--line);overflow:auto}.nav-group{margin-bottom:24px}.nav-label{font-size:12px;font-weight:600;margin:0 0 8px;padding:0 11px}.sidebar a{display:block;color:#64645e;padding:6px 11px;border-radius:5px;font-size:13px;line-height:1.6}.sidebar a:hover{background:#f3f2ee;color:var(--ink)}.sidebar a.current{background:var(--soft);color:var(--accent);font-weight:550}.sidebar .small{font-size:11px;color:#8a8981;border-top:1px solid var(--line);padding:16px 11px;margin-top:30px}main{padding:32px 0 24px;min-width:0}.breadcrumb{font-size:12px;color:var(--muted);margin-bottom:15px}.breadcrumb span{padding:0 9px;color:#b4b1a8}.eyebrow{font-size:12px;color:var(--accent);font-weight:600;margin-bottom:7px}h1{font-size:32px;line-height:1.35;letter-spacing:-1px;margin:0 0 13px;font-weight:650}.lead{margin:0;color:var(--muted);font-size:14px;line-height:1.85}.intro{padding-bottom:22px;border-bottom:1px solid var(--line)}.topic-tags{display:flex;gap:8px;margin-top:16px}.tag{font-size:11px;line-height:1.5;padding:3px 8px;border:1px solid var(--line);border-radius:4px;color:var(--muted)}.notice{display:flex;gap:12px;background:#f6f5f0;border:1px solid var(--line);border-radius:6px;margin:22px 0 26px;padding:12px 15px;font-size:13px}.notice .icon{color:var(--accent);font-weight:700}.notice a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}section{scroll-margin-top:85px;margin-top:26px}.section-heading{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:10px}h2{font-size:19px;letter-spacing:-.3px;margin:0;font-weight:600}.count{font-size:11px;color:var(--muted)}.article{display:block;padding:15px 0;border-bottom:1px solid var(--line)}.article:hover h3{color:var(--accent)}.article-head{display:flex;align-items:center;gap:12px;justify-content:space-between}h3{font-size:14px;line-height:1.65;font-weight:600;margin:0;transition:color .15s}.article .arrow{font-size:16px;color:#a49d92}.article p{font-size:12px;color:var(--muted);line-height:1.8;margin:4px 25px 0 0}.reading{padding:15px 17px;border:1px solid var(--line);border-radius:6px;margin-top:27px}.reading h2{font-size:14px}.reading p{margin:5px 0 0;font-size:12px;color:var(--muted)}.reading a{color:var(--accent)}.toc{position:sticky;top:65px;align-self:start;padding-top:43px;font-size:12px}.toc strong{font-size:12px;font-weight:600}.toc-links{border-left:1px solid var(--line);margin-top:12px;padding-left:14px;display:grid;gap:10px;color:var(--muted)}.toc-note{border-top:1px solid var(--line);margin-top:27px;padding-top:16px;color:var(--muted);line-height:1.9}.toc-note a{display:inline-block;margin-top:7px;color:var(--accent)}footer{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:18px;margin-top:30px;color:var(--muted);font-size:11px}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+:root{color-scheme:light;--bg:#fdfdfb;--ink:#30302e;--muted:#72726b;--line:#e9e8e2;--accent:#a6533b;--soft:#f5eee8;--hover:#f3f2ee;--sidelink:#64645e;--faint:#8a8981;--notice:#f6f5f0;--crumb:#b4b1a8;--arrow:#a49d92}html.dark{color-scheme:dark;--bg:#1a1918;--ink:#eeece5;--muted:#bcb8af;--line:#36342f;--accent:#d4a27f;--soft:rgba(212,162,127,.16);--hover:#292723;--sidelink:#bcb8af;--faint:#99958b;--notice:#22211f;--crumb:#99958b;--arrow:#99958b}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;min-width:1060px;background:var(--bg);color:var(--ink);font:14px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif}a{color:inherit;text-decoration:none}a:focus-visible{outline:2px solid var(--accent);outline-offset:4px}a:hover{color:var(--accent)}header{height:65px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg);z-index:5}.topbar{max-width:1440px;padding:0 40px;margin:auto;height:100%;display:flex;align-items:center;gap:38px}.brand{font-size:17px;font-weight:650;letter-spacing:-.5px;display:flex;align-items:center;gap:10px}.brand-mark{color:var(--accent);font-size:27px}.site-label{font-size:12px;font-weight:400;color:var(--muted);padding-left:14px;border-left:1px solid var(--line);letter-spacing:0}.topnav{display:flex;gap:25px;align-items:center;margin-left:auto;font-size:13px}.topnav .active{color:var(--accent)}.docs-button{border:1px solid var(--line);border-radius:6px;padding:5px 13px}.layout{display:grid;grid-template-columns:218px minmax(520px,1fr) 170px;gap:42px;max-width:1440px;padding:0 40px;margin:auto}.sidebar{position:sticky;top:65px;height:calc(100vh - 65px);padding:30px 18px 24px 0;border-right:1px solid var(--line);overflow:auto}.nav-group{margin-bottom:24px}.nav-label{font-size:12px;font-weight:600;margin:0 0 8px;padding:0 11px}.sidebar a{display:block;color:var(--sidelink);padding:6px 11px;border-radius:5px;font-size:13px;line-height:1.6}.sidebar a:hover{background:var(--hover);color:var(--ink)}.sidebar a.current{background:var(--soft);color:var(--accent);font-weight:550}.sidebar .small{font-size:11px;color:var(--faint);border-top:1px solid var(--line);padding:16px 11px;margin-top:30px}main{padding:32px 0 24px;min-width:0}.breadcrumb{font-size:12px;color:var(--muted);margin-bottom:15px}.breadcrumb span{padding:0 9px;color:var(--crumb)}.eyebrow{font-size:12px;color:var(--accent);font-weight:600;margin-bottom:7px}h1{font-size:32px;line-height:1.35;letter-spacing:-1px;margin:0 0 13px;font-weight:650}.lead{margin:0;color:var(--muted);font-size:14px;line-height:1.85}.intro{padding-bottom:22px;border-bottom:1px solid var(--line)}.topic-tags{display:flex;gap:8px;margin-top:16px}.tag{font-size:11px;line-height:1.5;padding:3px 8px;border:1px solid var(--line);border-radius:4px;color:var(--muted)}.notice{display:flex;gap:12px;background:var(--notice);border:1px solid var(--line);border-radius:6px;margin:22px 0 26px;padding:12px 15px;font-size:13px}.notice .icon{color:var(--accent);font-weight:700}.notice a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}section{scroll-margin-top:85px;margin-top:26px}.section-heading{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:10px}h2{font-size:19px;letter-spacing:-.3px;margin:0;font-weight:600}.count{font-size:11px;color:var(--muted)}.article{display:block;padding:15px 0;border-bottom:1px solid var(--line)}.article:hover h3{color:var(--accent)}.article-head{display:flex;align-items:center;gap:12px;justify-content:space-between}h3{font-size:14px;line-height:1.65;font-weight:600;margin:0;transition:color .15s}.article .arrow{font-size:16px;color:var(--arrow)}.theme-toggle{border:1px solid var(--line);border-radius:6px;padding:5px 13px;background:transparent;color:var(--ink);font:13px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif;cursor:pointer}.theme-toggle:hover{color:var(--accent)}.article p{font-size:12px;color:var(--muted);line-height:1.8;margin:4px 25px 0 0}.reading{padding:15px 17px;border:1px solid var(--line);border-radius:6px;margin-top:27px}.reading h2{font-size:14px}.reading p{margin:5px 0 0;font-size:12px;color:var(--muted)}.reading a{color:var(--accent)}.toc{position:sticky;top:65px;align-self:start;padding-top:43px;font-size:12px}.toc strong{font-size:12px;font-weight:600}.toc-links{border-left:1px solid var(--line);margin-top:12px;padding-left:14px;display:grid;gap:10px;color:var(--muted)}.toc-note{border-top:1px solid var(--line);margin-top:27px;padding-top:16px;color:var(--muted);line-height:1.9}.toc-note a{display:inline-block;margin-top:7px;color:var(--accent)}footer{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:18px;margin-top:30px;color:var(--muted);font-size:11px}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 </style>
 </head>
 <body>
-<header><div class="topbar"><a class="brand" href="/" aria-label="cschengliang 首页"><span class="brand-mark" aria-hidden="true">✳</span>cschengliang <span class="site-label">技术博客</span></a><nav class="topnav" aria-label="主导航"><a class="active" href="/" aria-current="page">概述</a><a href="/docs/blog/">文章</a><a href="/docs/notes/overview.html">实践记录</a><a href="https://github.com/cschengliang">GitHub ↗</a><a class="docs-button" href="/docs/">进入文档 →</a></nav></div></header>
+<header><div class="topbar"><a class="brand" href="/" aria-label="cschengliang 首页"><span class="brand-mark" aria-hidden="true">✳</span>cschengliang <span class="site-label">技术博客</span></a><nav class="topnav" aria-label="主导航"><a class="active" href="/" aria-current="page">概述</a><a href="/docs/blog/">文章</a><a href="/docs/notes/overview.html">实践记录</a><a href="https://github.com/cschengliang">GitHub ↗</a><button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="false">深色</button><a class="docs-button" href="/docs/">进入文档 →</a></nav></div></header>
 <div class="layout">
 <aside class="sidebar"><nav aria-label="内容分类"><div class="nav-group"><p class="nav-label">开始阅读</p><a class="current" href="/" aria-current="page">概述</a><a href="/docs/guide/getting-started.html">快速开始</a><a href="/docs/blog/">全部文章</a></div><div class="nav-group"><p class="nav-label">Android Framework</p><a href="#system">系统日志与问题定位</a><a href="#input">输入与图形系统</a><a href="#binder">Binder IPC</a></div><div class="nav-group"><p class="nav-label">源码阅读</p><a href="/docs/blog/android-binder-guide.html">Binder.java</a><a href="/docs/blog/android-ibinder-guide.html">IBinder.java</a></div><div class="nav-group"><p class="nav-label">笔记与实践</p><a href="/docs/notes/overview.html">实践记录</a><a href="https://github.com/cschengliang">GitHub 仓库 ↗</a></div></nav><div class="small">学习、记录与实践。<br>把问题读懂，把过程记下来。</div></aside>
 <main id="main-content"><div class="breadcrumb">技术博客<span>/</span>概述</div><div class="intro"><div class="eyebrow">学习笔记 / ENGINEERING NOTES</div><h1>从源码出发，理解系统。</h1><p class="lead">你好，我是 cschengliang。这里记录 Android Framework、Binder IPC<br>与系统调试中的理解和实践，让每一次探索都留下可以回看的线索。</p><div class="topic-tags"><span class="tag">Android Framework</span><span class="tag">源码阅读</span><span class="tag">系统调试</span></div></div>
@@ -23,5 +35,48 @@
 <footer><span>© 2026 cschengliang</span><a href="https://github.com/cschengliang">在 GitHub 上交流 ↗</a></footer></main>
 <aside class="toc" aria-label="本页目录"><strong>本页目录</strong><nav class="toc-links"><a href="#system">系统日志与问题定位</a><a href="#input">输入与图形系统</a><a href="#binder">Binder IPC 与源码阅读</a><a href="#notes">实践记录</a></nav><div class="toc-note">专注技术，持续记录。<br>在文档站搜索更多内容。<br><a href="/docs/blog/">浏览全部文章 →</a></div></aside>
 </div>
+<script>
+(function () {
+  var key = 'vitepress-theme-appearance'
+  var button = document.getElementById('theme-toggle')
+  var themeColor = document.querySelector('meta[name="theme-color"]')
+  function systemDark() {
+    return matchMedia('(prefers-color-scheme: dark)').matches
+  }
+  function readMode() {
+    try {
+      var raw = localStorage.getItem(key)
+      if (!raw) return 'auto'
+      if (raw.charAt(0) === '"') raw = JSON.parse(raw)
+      if (raw === 'dark' || raw === 'light' || raw === 'auto') return raw
+    } catch (e) {}
+    return 'auto'
+  }
+  function isDark() {
+    var mode = readMode()
+    return mode === 'dark' || (mode !== 'light' && systemDark())
+  }
+  function paint() {
+    var dark = isDark()
+    document.documentElement.classList.toggle('dark', dark)
+    if (themeColor) themeColor.setAttribute('content', dark ? '#1a1918' : '#fdfdfb')
+    if (button) {
+      button.textContent = dark ? '浅色' : '深色'
+      button.setAttribute('aria-pressed', dark ? 'true' : 'false')
+      button.setAttribute('aria-label', dark ? '切换到浅色模式' : '切换到深色模式')
+    }
+  }
+  button.addEventListener('click', function () {
+    var next = isDark() ? 'light' : 'dark'
+    var stored = next === (systemDark() ? 'dark' : 'light') ? 'auto' : next
+    localStorage.setItem(key, stored)
+    paint()
+  })
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function () {
+    if (readMode() === 'auto') paint()
+  })
+  paint()
+})()
+</script>
 </body>
 </html>

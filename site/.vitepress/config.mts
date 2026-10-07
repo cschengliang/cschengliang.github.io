@@ -10,15 +10,14 @@ export default defineConfig({
   lastUpdated: true,
   appearance: true,
   head: [
-    ['link', { rel: 'icon', href: '/favicon.svg' }]
+    ['link', { rel: 'icon', href: '/favicon.svg' }],
+    ['meta', { name: 'theme-color', content: '#fdfdfb' }]
   ],
   themeConfig: {
-    siteTitle: 'cschengliang Docs',
-    logo: '/favicon.svg',
+    siteTitle: 'cschengliang',
     nav: [
       { text: '概述', link: '/' },
-      { text: '开始使用', link: '/guide/getting-started' },
-      { text: '博客', link: '/blog/' },
+      { text: '文章', link: '/blog/' },
       { text: '实践记录', link: '/notes/overview' },
       { text: 'GitHub', link: 'https://github.com/cschengliang' }
     ],
@@ -51,9 +50,6 @@ export default defineConfig({
         ]
       }
     ],
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/cschengliang' }
-    ],
     search: {
       provider: 'local'
     },
@@ -62,8 +58,8 @@ export default defineConfig({
       level: [2, 3]
     },
     footer: {
-      message: '基于 VitePress 构建',
-      copyright: 'Copyright © 2026 cschengliang'
+      message: '© 2026 cschengliang',
+      copyright: '<a href="https://github.com/cschengliang">在 GitHub 上交流 ↗</a>'
     },
     docFooter: {
       prev: '上一页',
