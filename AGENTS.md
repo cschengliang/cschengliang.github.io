@@ -5,3 +5,10 @@
 1. 页面设计仅考虑桌面端，无需适配手机；不新增专门的移动端布局或断点。
 2. UI 风格参考 Claude Code 中文文档站：https://code.claude.com/docs/zh-CN/overview 。进行页面设计时，以该站的文档式信息组织、导航、排版和视觉层级为参考。
 3. 网站定位为技术博客，页面布局应更紧凑，以文章阅读和内容导航为核心；控制留白、区块间距与卡片尺寸，避免大幅宣传式首屏和过多装饰占据内容空间。
+
+# 构建与发布
+
+- 本地构建：`npm ci && npm run docs:build`
+- 推送到 `main` 后，GitHub Actions 自动部署
+- 不要提交 `docs/`（构建产物）
+- 新文章放在 `site/blog/`，并在 `site/.vitepress/config.mts` 注册侧栏入口
