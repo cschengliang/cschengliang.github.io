@@ -1,5 +1,7 @@
 ﻿---
 layout: doc
+title: 学习、记录与实践
+description: cschengliang 的技术笔记，专注 Android Framework、Binder IPC 与系统调试，整理源码阅读和问题排查线索。
 ---
 
 # 学习、记录与实践
@@ -12,7 +14,7 @@ layout: doc
 
 ## 系统日志与问题定位
 
-- [Android EventLog 参考](/blog/eventlogref)：日志标签、字段含义与触发流程。
+- [Android EventLog 参考](/blog/eventlogref)：按类别查阅日志标签、字段含义与触发流程。
 - [Android EventLog 场景索引](/blog/eventlog-scenarios)：按启动、ANR、输入与性能场景定位事件。
 
 ## 输入与图形系统

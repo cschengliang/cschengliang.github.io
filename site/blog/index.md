@@ -1,3 +1,8 @@
+---
+title: 技术博客
+description: Android Framework、Binder IPC 与系统源码阅读文章目录，覆盖 EventLog、输入系统和 Binder 实现。
+---
+
 # 技术博客
 
 这里记录 Android Framework、Binder IPC 和系统源码阅读过程中的理解与实践。
@@ -5,7 +10,7 @@
 ## Android 系统参考
 
 - [Android EventLog 参考](/blog/eventlogref)<br>
-  按功能分类整理 Android EventLog 标签、字段含义与触发流程，便于源码检索和问题定位。
+  按功能分类整理 Android EventLog 标签、字段含义与触发流程；完整条目拆在 [Activity / 进程](/blog/eventlogref-activity)、[Automotive](/blog/eventlogref-automotive)、[安全与连接](/blog/eventlogref-security)、[UI / 输入](/blog/eventlogref-ui)、[Framework 运行时](/blog/eventlogref-framework) 五页。
 - [Android EventLog 场景索引](/blog/eventlog-scenarios)<br>
   按日常排查场景快速筛选启动、Activity、ANR、输入、网络和性能相关事件。
 
