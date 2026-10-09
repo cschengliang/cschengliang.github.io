@@ -7,7 +7,7 @@ outline: deep
 
 # Android EventLog 场景索引
 
-本文面向日常 log 分析，按“正在排查的系统场景”整理常用 EventLog。它不是完整 tag 定义表；字段含义和源码触发流程请查阅 [eventlogref.md](eventlogref.md)。
+本文面向日常 log 分析，按“正在排查的系统场景”整理常用 EventLog。它不是完整 tag 定义表；字段含义和源码触发流程请查阅 [Android EventLog 参考](/blog/eventlogref)。
 
 EventLog 位于 `events` buffer，常用查看方式：
 
@@ -224,7 +224,7 @@ Windows 环境可将 `grep` 替换为 `findstr`。
 | 车载电源管理 | `car_pwr_mgr_*`（150300-150303） |
 | Car Watchdog | `car_watchdog_svc_io_overuse_kill`（150400） |
 
-车载事件的完整字段和具体类方法请直接在 [eventlogref.md](eventlogref.md) 中搜索事件名，或到 `packages/services/Car` 搜索 `EventLogTags.write...`。
+车载事件的完整字段和具体类方法请直接在 [Automotive / Car 分类页](/blog/eventlogref-automotive) 中搜索事件名，或到 `packages/services/Car` 搜索 `EventLogTags.write...`。
 
 ## 15. 快速选择规则
 

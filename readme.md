@@ -4,6 +4,8 @@
 
 站点地址：<https://cschengliang.github.io/docs/>
 
+根路径 `/` 是手写首页 `index.html`；`/docs/` 是 VitePress 站点。发布由 GitHub Actions 构建并部署，不再从 `main` 分支根目录直接托管仓库文件。
+
 ## 克隆后开始使用
 
 ```powershell
@@ -23,14 +25,19 @@ npm.cmd ci --ignore-scripts --no-audit --no-fund
 npm.cmd run docs:dev
 ```
 
-构建 GitHub Pages 发布文件：
+构建 VitePress 站点：
 
 ```powershell
 npm.cmd run docs:build
 ```
 
-构建完成后，产物会写入仓库根目录的 `docs/`。本仓库的 Pages 发布源是 `main`
-分支根目录，因此提交时要同时提交 `site/` 和构建生成的 `docs/`。
+构建产物写入本地 `docs/`（已 gitignore，不要提交）。需要检查最终上线目录时，再组装 Pages 产物：
+
+```powershell
+npm.cmd run pages:assemble
+```
+
+`_site/` 中包含首页、favicon、`robots.txt` 和构建后的 `docs/`。
 
 ## 新增文章
 
@@ -41,16 +48,16 @@ npm.cmd run docs:build
 3. 如果文章引用本机 AOSP 源码，将本地路径改为可访问的
    `android.googlesource.com` 链接；不要把整套 AOSP 源码复制进本站。
 4. 执行 `npm.cmd run docs:build`，确认构建成功。
-5. 提交并推送：
+5. 提交源文件并推送到 `main`（不要提交 `docs/`）：
 
    ```powershell
-   git add site docs readme.md
+   git add site readme.md
    git commit -m "Publish <文章标题>"
    git push origin main
    ```
 
-GitHub Pages 会从 `main` 分支根目录的 `docs/` 文件发布。`docs/` 是构建产物，
-不要直接手工编辑；需要更新页面时修改 `site/` 后重新构建。
+GitHub Actions 会在推送到 `main` 后构建并部署。仓库 Settings → Pages 的 Source
+必须是 **GitHub Actions**，而不是 “Deploy from a branch”。
 
 ## Agent 操作约定
 
@@ -58,4 +65,4 @@ GitHub Pages 会从 `main` 分支根目录的 `docs/` 文件发布。`docs/` 是
 - 不要擅自改写文章正文；只添加必要的 frontmatter、入口和导航。
 - 构建出现代码高亮回退或 chunk 体积提示时通常不影响发布；只有构建失败才需要
   停止并处理错误。
-- 推送前检查提交内容只包含本次文章和对应的构建产物。
+- 推送前检查提交内容只包含本次源文件，不要加入 `docs/`、`_site/` 或 `.idea/`。

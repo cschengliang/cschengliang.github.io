@@ -1,3 +1,8 @@
+---
+title: 快速开始
+description: 说明本站的文档结构、本地预览方式和 GitHub Pages 发布流程。
+---
+
 # 快速开始
 
 欢迎来到 `cschengliang Docs`。
@@ -6,20 +11,22 @@
 
 ## 浏览文档
 
-从左侧选择页面，或使用顶部搜索框查找内容。在移动设备上，导航会收纳到菜单中。
+从左侧选择页面，或使用顶部搜索框查找内容。
 
 ## 文档结构
 
-源文件位于仓库的 `site/` 目录，构建结果输出到 `docs/` 目录。
+Markdown 源文件位于仓库的 `site/` 目录。构建结果由 GitHub Actions 生成，不会提交到 git。
 
 ```text
 site/
 ├── .vitepress/
 │   └── config.mts
+├── blog/
 ├── guide/
 │   └── getting-started.md
 ├── notes/
 │   └── overview.md
+├── about.md
 └── index.md
 ```
 
@@ -28,7 +35,7 @@ site/
 安装依赖并启动开发服务器：
 
 ```bash
-npm install
+npm ci
 npm run docs:dev
 ```
 
@@ -38,8 +45,8 @@ npm run docs:dev
 npm run docs:build
 ```
 
-构建结果会输出到仓库的 `docs/` 目录，并通过 GitHub Pages 的 `/docs/` 路径访问。
+构建结果会输出到仓库根目录的 `docs/`（本地产物，已 gitignore）。GitHub Pages 由 Actions 组装后发布：根路径是手写首页，`/docs/` 是 VitePress 站点。
 
 ::: warning 发布提示
-如果修改了文档源文件，需要重新构建 `docs/` 后再提交，GitHub Pages 才会显示最新内容。
+推送到 `main` 后，GitHub Actions 会构建并部署。仓库 Settings → Pages 的 Source 需要设为 GitHub Actions。
 :::

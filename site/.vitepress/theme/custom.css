@@ -236,6 +236,37 @@ body {
   font-weight: 550 !important;
 }
 
+.VPSidebarItem.level-2 > .item {
+  padding: 0;
+  border-radius: 5px;
+}
+
+.VPSidebarItem.level-2 > .item > .link > .text {
+  padding: 5px 11px 5px 22px !important;
+  font-size: 12px !important;
+  line-height: 1.55 !important;
+  font-weight: 400 !important;
+  color: var(--vp-sidebar-link) !important;
+}
+
+.VPSidebarItem.level-2.is-link > .item:hover {
+  background: var(--vp-sidebar-item-hover);
+}
+
+.VPSidebarItem.level-2.is-link > .item:hover > .link > .text {
+  color: var(--vp-c-text-1) !important;
+}
+
+.VPSidebarItem.level-2.is-active > .item {
+  background: var(--vp-c-brand-soft) !important;
+}
+
+.VPSidebarItem.level-2.is-active > .item > .link > .text,
+.VPSidebarItem.level-2.is-active > .item:hover > .link > .text {
+  color: var(--vp-c-brand-1) !important;
+  font-weight: 550 !important;
+}
+
 .VPSidebarItem .indicator {
   display: none !important;
 }
