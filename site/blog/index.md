@@ -10,7 +10,7 @@ description: Android Framework、Binder IPC 与系统源码阅读文章目录，
 ## 源码获取与阅读准备
 
 - [高通安卓源码获取方法](/blog/qualcomm-android-source-download)<br>
-  通过 CodeLinaro 获取高通 Android 平台源码，介绍仓库地址规律、完整克隆、指定 tag 的浅克隆与版本确认方法。
+  高通 Android 源码仓库地址，以及完整克隆和指定版本浅克隆的方法。
 
 ## Android 系统参考
 
