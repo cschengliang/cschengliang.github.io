@@ -73,6 +73,7 @@ export default defineConfig({
         text: '技术博客',
         items: [
           { text: '博客首页', link: '/blog/' },
+          { text: '高通安卓源码获取方法', link: '/blog/qualcomm-android-source-download' },
           {
             text: 'Android EventLog 参考',
             link: '/blog/eventlogref',
