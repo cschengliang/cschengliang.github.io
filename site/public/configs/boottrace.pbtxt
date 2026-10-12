@@ -1,0 +1,77 @@
+# 开机 Perfetto trace 配置
+# 从 /data 挂载、traced 就绪后开始录，录制 30 秒；按设备开机耗时调整 duration_ms。
+#
+# adb push boottrace.pbtxt /data/misc/perfetto-configs/boottrace.pbtxt
+# adb shell setprop persist.debug.perfetto.boottrace 1
+# adb reboot
+# adb pull /data/misc/perfetto-traces/boottrace.perfetto-trace
+
+duration_ms: 30000
+
+# 边录边写文件，避免内存 buffer 装不下整个开机过程
+# write_into_file 必须配 flush_period_ms，否则 trace_processor 会报 config_write_into_file_no_flush
+write_into_file: true
+file_write_period_ms: 1000
+flush_period_ms: 5000
+
+buffers {
+  size_kb: 65536
+  fill_policy: RING_BUFFER
+}
+
+# 内核：调度、进程 fork/exec/exit、CPU 频率；外加 framework 的 atrace 打点
+data_sources {
+  config {
+    name: "linux.ftrace"
+    ftrace_config {
+      buffer_size_kb: 4096
+      drain_period_ms: 250
+
+      ftrace_events: "sched_switch"
+      ftrace_events: "sched_waking"
+      ftrace_events: "sched_wakeup_new"
+      ftrace_events: "sched_blocked_reason"
+      ftrace_events: "sched_process_fork"
+      ftrace_events: "sched_process_exec"
+      ftrace_events: "sched_process_exit"
+      ftrace_events: "sched_process_free"
+      ftrace_events: "task_newtask"
+      ftrace_events: "task_rename"
+      ftrace_events: "cpu_frequency"
+      ftrace_events: "cpu_idle"
+
+      atrace_categories: "am"
+      atrace_categories: "wm"
+      atrace_categories: "ss"
+      atrace_categories: "dalvik"
+      atrace_categories: "pm"
+      atrace_categories: "res"
+      atrace_categories: "view"
+      atrace_categories: "gfx"
+      atrace_categories: "binder_driver"
+      atrace_apps: "*"
+    }
+  }
+}
+
+# 进程名和父子关系，用来把 pid 翻译成进程
+data_sources {
+  config {
+    name: "linux.process_stats"
+    process_stats_config {
+      scan_all_processes_on_start: true
+    }
+  }
+}
+
+# logcat，包括 events buffer 里的 boot_progress_*
+data_sources {
+  config {
+    name: "android.log"
+    android_log_config {
+      log_ids: LID_DEFAULT
+      log_ids: LID_SYSTEM
+      log_ids: LID_EVENTS
+    }
+  }
+}

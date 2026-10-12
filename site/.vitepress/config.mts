@@ -98,7 +98,8 @@ export default defineConfig({
       {
         text: '性能优化',
         items: [
-          { text: '专栏首页', link: '/blog/performance/' }
+          { text: '专栏首页', link: '/blog/performance/' },
+          { text: '抓取安卓开机 Trace', link: '/blog/performance/android-boot-trace' }
         ]
       },
       {
