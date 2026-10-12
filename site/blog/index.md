@@ -38,6 +38,11 @@ description: Android Framework、Binder IPC 与系统源码阅读文章目录，
 - [IBinder.java 源码导读](/blog/android-ibinder-guide)  
   理解 Binder 对象的基础协议、死亡监听与生命周期管理。
 
+## 性能优化
+
+- [性能优化专栏](/blog/performance/)<br>
+  记录 Android 性能分析、问题定位与优化实践。
+
 ::: tip 阅读建议
 建议先阅读 Proxy、Stub 与 Binder 线程一文，再结合 `Binder.java` 和 `IBinder.java` 源码导读深入理解 Framework 实现。
 :::

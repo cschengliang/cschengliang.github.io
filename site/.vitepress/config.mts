@@ -96,6 +96,12 @@ export default defineConfig({
         ]
       },
       {
+        text: '性能优化',
+        items: [
+          { text: '专栏首页', link: '/blog/performance/' }
+        ]
+      },
+      {
         text: '实践记录',
         items: [
           { text: '记录说明', link: '/notes/overview' }
