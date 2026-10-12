@@ -9,7 +9,34 @@ outline: deep
 
 Android 13 及以上支持在开机时自动启动 Perfetto 录制。基本步骤是：**推送配置、设置属性、重启、等待录制结束、导出文件**。
 
-## 一、准备配置
+## 一、开机录制原理
+
+开机 Trace 由 **init 自动启动 Perfetto**。系统的 `/system/etc/init/perfetto.rc` 定义了 `perfetto_trace_on_boot` 服务，设置 `persist.debug.perfetto.boottrace=1` 相当于预约下一次开机录制。
+
+原始记录对应的触发流程如下：
+
+```text
+/data 挂载，持久化属性加载完成
+  → ro.persistent_properties.ready=true
+  → init 触发 perfetto_maybe_trace_on_boot
+  → 检查 boottrace=1 且 persist.traced.enable=1
+  → 清空 boottrace 属性，删除旧 Trace
+  → 等待 sys.trace.traced_started=1（traced 已就绪）
+  → 启动 perfetto_trace_on_boot
+```
+
+服务实际执行的命令是：
+
+```sh
+perfetto --txt -c /data/misc/perfetto-configs/boottrace.pbtxt \
+  -o /data/misc/perfetto-traces/boottrace.perfetto-trace
+```
+
+Perfetto 读取配置，连接 traced 启动录制会话，按配置收集调度事件、Framework 打点和日志等数据，再写入输出文件。本配置通过 `duration_ms: 30000` 指定录制 30 秒。
+
+这里有两个关键点：**开关会被清空，所以每次抓取都要重新设置；录制依赖 `/data` 和 traced 就绪，所以无法从内核启动的第一刻开始抓取**。具体触发写法可能随系统版本变化，可对照设备上的 `perfetto.rc`；上述流程可参考 [AOSP 中的实现](https://android.googlesource.com/platform/external/perfetto/+/5af86215f7908a5f24615dd7d5df1e8bc72d60a4/perfetto.rc)。
+
+## 二、准备配置
 
 下载 <a href="/docs/configs/boottrace.pbtxt" download>boottrace.pbtxt</a>，保存在电脑当前操作目录。配置来自本次开机分析记录，录制时长为 30 秒，包含线程调度、CPU 频率、Framework 打点、进程信息和 logcat。
 
@@ -28,7 +55,7 @@ adb push boottrace.pbtxt /data/misc/perfetto-configs/boottrace.pbtxt
 
 如果使用 Git Bash，先执行 `export MSYS_NO_PATHCONV=1`，避免 `/data/...` 被转换成 Windows 路径。PowerShell 和 cmd 无需这一步。
 
-## 二、重启并录制
+## 三、重启并录制
 
 先检查 tracing 开关：
 
@@ -62,7 +89,7 @@ adb shell getprop init.svc.perfetto_trace_on_boot
 
 本配置录制 30 秒；`adb wait-for-device` 只表示 ADB 已连接，不代表录制完成。服务立即变成 `stopped` 也可能是配置出错，可按文末方法手动试录。
 
-## 三、导出并查看
+## 四、导出并查看
 
 确认录制结束后，导出 Trace：
 
@@ -79,7 +106,7 @@ adb pull /data/misc/perfetto-traces/boottrace.perfetto-trace
 | `StartPackageManagerService`、`StartWindowManagerService` | 定位具体服务耗时 |
 | `boot_progress_*` | 查看录制期间的开机日志里程碑 |
 
-## 四、录制范围
+## 五、录制范围
 
 开机录制要等 `/data` 挂载、持久化属性加载和 traced 就绪后才开始，因此不能覆盖内核启动和 init 前半段，Zygote 预加载也可能缺失。
 
@@ -101,7 +128,7 @@ adb pull /data/misc/perfetto-traces/zygote_restart.perfetto-trace
 
 `stop; start` 会重启 Framework 和应用，内核不会重启。这种方式适合观察流程，耗时不能直接当作真实重启的开机耗时。
 
-## 五、常见问题
+## 六、常见问题
 
 **没有生成文件**：检查配置路径、`persist.traced.enable` 和设备的 Perfetto 开机服务。可以先在已开机状态手动试录，查看是否报错；命令会等待录制结束：
 
