@@ -11,7 +11,9 @@ Android 13 及以上支持在开机时自动启动 Perfetto 录制。基本步�
 
 ## 一、开机录制原理
 
-开机 Trace 由 **init 自动启动 Perfetto**。系统的 `/system/etc/init/perfetto.rc` 定义了 `perfetto_trace_on_boot` 服务，设置 `persist.debug.perfetto.boottrace=1` 相当于预约下一次开机录制。
+系统在 `/system/etc/init/perfetto.rc` 中**预置了一个 oneshot 服务 `perfetto_trace_on_boot`，以及开机时启动它的触发逻辑**。正因为系统已经提供了这个入口，我们只需放好配置文件、设置 `persist.debug.perfetto.boottrace=1`，就能让 init 在下次开机时自动启动 Perfetto 录制，无需自行新增 init 服务。
+
+`oneshot` 表示服务退出后，init 不会自动重启它；配合录制开关的清空逻辑，每次设置只用于下一次开机录制。
 
 原始记录对应的触发流程如下：
 
