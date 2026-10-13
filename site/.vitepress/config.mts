@@ -56,59 +56,86 @@ export default defineConfig({
     nav: [
       { text: '概述', link: '/' },
       { text: '文章', link: '/blog/' },
-      { text: '实践记录', link: '/notes/overview' },
+      { text: '实践记录', link: '/notes/' },
       { text: '关于', link: '/about' },
       { text: 'GitHub', link: 'https://github.com/cschengliang' }
     ],
-    sidebar: [
-      {
-        text: '开始使用',
-        items: [
-          { text: '概述', link: '/' },
-          { text: '快速开始', link: '/guide/getting-started' },
-          { text: '关于', link: '/about' }
-        ]
-      },
-      {
-        text: '技术博客',
-        items: [
-          { text: '博客首页', link: '/blog/' },
-          { text: '高通安卓源码获取方法', link: '/blog/qualcomm-android-source-download' },
-          {
-            text: 'Android EventLog 参考',
-            link: '/blog/eventlogref',
-            collapsed: false,
-            items: [
-              { text: 'Activity / Window / 进程', link: '/blog/eventlogref-activity' },
-              { text: 'Automotive / Car', link: '/blog/eventlogref-automotive' },
-              { text: 'Security / Telephony / 连接', link: '/blog/eventlogref-security' },
-              { text: 'UI / Input / Notification', link: '/blog/eventlogref-ui' },
-              { text: 'Framework Core / Runtime', link: '/blog/eventlogref-framework' }
-            ]
-          },
-          { text: 'Android EventLog 场景索引', link: '/blog/eventlog-scenarios' },
-          { text: 'SurfaceControlRegistry 调试指南', link: '/blog/surfacecontrol-registry-debugging' },
-          { text: '触摸事件：InputDispatcher 到 View', link: '/blog/input-dispatcher-to-view-click' },
-          { text: 'Binder 同步调用优先级继承', link: '/blog/binder-priority-inheritance' },
-          { text: 'Binder：Proxy、Stub 与线程', link: '/blog/android-binder-proxy-stub-thread' },
-          { text: 'Binder.java 源码导读', link: '/blog/android-binder-guide' },
-          { text: 'IBinder.java 源码导读', link: '/blog/android-ibinder-guide' }
-        ]
-      },
-      {
-        text: '性能优化',
-        items: [
-          { text: '专栏首页', link: '/blog/performance/' },
-          { text: '抓取安卓开机 Trace', link: '/blog/performance/android-boot-trace' }
-        ]
-      },
-      {
-        text: '实践记录',
-        items: [
-          { text: '记录说明', link: '/notes/overview' }
-        ]
-      }
-    ],
+    sidebar: {
+      '/notes/': [
+        {
+          text: '实践记录',
+          items: [
+            { text: '实践首页', link: '/notes/' },
+            { text: '记录说明', link: '/notes/overview' }
+          ]
+        },
+        {
+          text: '内容方向',
+          items: [
+            { text: '前端与静态网站', link: '/notes/#web' },
+            { text: '开发工具与工作流', link: '/notes/#tools' },
+            { text: '项目问题排查', link: '/notes/#debugging' },
+            { text: '可复用的解决方案', link: '/notes/#solutions' }
+          ]
+        },
+        {
+          text: '站点导航',
+          items: [
+            { text: '技术博客', link: '/blog/' },
+            { text: '性能优化', link: '/blog/performance/' }
+          ]
+        }
+      ],
+      '/': [
+        {
+          text: '开始使用',
+          items: [
+            { text: '概述', link: '/' },
+            { text: '快速开始', link: '/guide/getting-started' },
+            { text: '关于', link: '/about' }
+          ]
+        },
+        {
+          text: '技术博客',
+          items: [
+            { text: '博客首页', link: '/blog/' },
+            { text: '高通安卓源码获取方法', link: '/blog/qualcomm-android-source-download' },
+            {
+              text: 'Android EventLog 参考',
+              link: '/blog/eventlogref',
+              collapsed: false,
+              items: [
+                { text: 'Activity / Window / 进程', link: '/blog/eventlogref-activity' },
+                { text: 'Automotive / Car', link: '/blog/eventlogref-automotive' },
+                { text: 'Security / Telephony / 连接', link: '/blog/eventlogref-security' },
+                { text: 'UI / Input / Notification', link: '/blog/eventlogref-ui' },
+                { text: 'Framework Core / Runtime', link: '/blog/eventlogref-framework' }
+              ]
+            },
+            { text: 'Android EventLog 场景索引', link: '/blog/eventlog-scenarios' },
+            { text: 'SurfaceControlRegistry 调试指南', link: '/blog/surfacecontrol-registry-debugging' },
+            { text: '触摸事件：InputDispatcher 到 View', link: '/blog/input-dispatcher-to-view-click' },
+            { text: 'Binder 同步调用优先级继承', link: '/blog/binder-priority-inheritance' },
+            { text: 'Binder：Proxy、Stub 与线程', link: '/blog/android-binder-proxy-stub-thread' },
+            { text: 'Binder.java 源码导读', link: '/blog/android-binder-guide' },
+            { text: 'IBinder.java 源码导读', link: '/blog/android-ibinder-guide' }
+          ]
+        },
+        {
+          text: '性能优化',
+          items: [
+            { text: '专栏首页', link: '/blog/performance/' },
+            { text: '抓取安卓开机 Trace', link: '/blog/performance/android-boot-trace' }
+          ]
+        },
+        {
+          text: '实践记录',
+          items: [
+            { text: '实践首页', link: '/notes/' }
+          ]
+        }
+      ]
+    },
     search: {
       provider: 'local'
     },

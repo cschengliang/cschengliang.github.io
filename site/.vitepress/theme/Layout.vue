@@ -26,12 +26,12 @@ watch(isDark, (dark) => {
         <a class="brand" href="/">
           <span class="brand-mark" aria-hidden="true">✳</span>
           <span>cschengliang</span>
-          <span class="site-label">技术博客</span>
+          <span class="site-label">{{ active('notes') ? '实践记录' : '技术博客' }}</span>
         </a>
         <nav class="site-topnav" aria-label="主导航">
           <a href="/">概述</a>
           <a href="/docs/blog/" :class="{ active: active('blog') }">文章</a>
-          <a href="/docs/notes/overview.html" :class="{ active: active('notes') }">实践记录</a>
+          <a href="/docs/notes/" :class="{ active: active('notes') }">实践记录</a>
           <a href="https://github.com/cschengliang" target="_blank" rel="noreferrer">GitHub ↗</a>
           <button type="button" class="theme-toggle" :aria-pressed="isDark" :aria-label="isDark ? '切换到浅色模式' : '切换到深色模式'" @click="toggleTheme">{{ isDark ? '浅色' : '深色' }}</button>
           <a class="docs-button" href="/docs/">进入文档 →</a>

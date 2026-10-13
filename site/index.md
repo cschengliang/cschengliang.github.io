@@ -1,4 +1,4 @@
-﻿---
+---
 layout: doc
 title: 学习、记录与实践
 description: cschengliang 的技术笔记，专注 Android Framework、Binder IPC 与系统调试，整理源码阅读和问题排查线索。
@@ -31,4 +31,4 @@ description: cschengliang 的技术笔记，专注 Android Framework、Binder IP
 
 ## 笔记与实践
 
-[实践记录](/notes/overview) 收录项目过程与技术尝试。[快速开始](/guide/getting-started) 介绍文档结构与阅读方式。
+[实践记录](/notes/) 收录项目过程与技术尝试。[快速开始](/guide/getting-started) 介绍文档结构与阅读方式。

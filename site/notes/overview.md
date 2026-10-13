@@ -1,6 +1,10 @@
 ---
 title: 记录说明
 description: 实践记录的内容方向与写作原则，用于整理项目过程和技术尝试。
+prev:
+  text: 实践首页
+  link: /notes/
+next: false
 ---
 
 # 记录说明
